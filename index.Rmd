@@ -33,12 +33,12 @@ library(ggdark)
 
 ```{r datos-cantones, message=FALSE, warning=FALSE}
 distritos <-
-  st_read(dsn = "C:/Users/Bryan/OneDrive/Desktop/Procesamiento de Datos/Proyecto/distritos_simplificados.geojson", quiet = TRUE) %>%
+  st_read(dsn = "distritos_simplificados.geojson", quiet = TRUE) %>%
   st_transform(4326)
 ```
 
 ```{r datos-delitos, message=FALSE, warning=FALSE}
-delitos <- read_xls(path="C:/Users/Bryan/OneDrive/Desktop/Procesamiento de Datos/Proyecto/estadisticaspoliciales2021.xls")
+delitos <- read_xls(path="estadisticaspoliciales2021.xls")
 delitos=subset(delitos, select=c("Delito", "Fecha", "Victima", "Edad", "Genero", "Provincia", "Canton", "Distrito"))
 delitos$Fecha <- as.Date(delitos$Fecha, format = "%d/%m/%Y")
 ```
