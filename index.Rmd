@@ -324,7 +324,7 @@ distritos_delitos <-
 
 ```{r paleta, message=FALSE, warning=FALSE}
 colores_distritos_delitos <-
-  colorNumeric(palette = "Blues",
+  colorNumeric(palette = "Reds",
                domain = distritos_delitos$delitos,
                na.color = "transparent")
 ```
@@ -380,7 +380,7 @@ renderPlotly({
   delitos %>%
   count(Delito) %>% 
   ggplot(aes(x = reorder(Delito, n), y = n)) +
-  geom_bar(stat = "identity", fill = "#1C86EE") +
+  geom_bar(stat = "identity", fill = "#458B74") +
   ggtitle("CANTIDAD DE DELITOS POR TIPO DE DELITOS") +
   xlab("TIPO DE DELITO") +
   ylab("CANTIDAD") +
@@ -400,7 +400,7 @@ grafico_x_victima <-
   delitos %>%
   count(Victima) %>% 
   ggplot(aes(x = reorder(Victima, n), y = n)) +
-  geom_bar(stat = "identity", fill = "#1C86EE") +
+  geom_bar(stat = "identity", fill = "#458B74") +
   ggtitle("Cantidad de delitos por Víctima") +
   xlab("Víctima") +
   ylab("Cantidad") +
@@ -426,7 +426,7 @@ grafico_x_mes <-
   delitos %>%
   count(fecha) %>%
   ggplot(level =level_order,(aes(x = reorder(mes, fecha), y = n)))  +
-  geom_bar(stat = "identity", fill = "#1C86EE") +
+  geom_bar(stat = "identity", fill = "#458B74") +
   ggtitle("DELITOS POR MES EN EL AÑO 2021") +
   xlab("MES") +
   ylab("CANTIDAD") +
@@ -449,7 +449,7 @@ grafico_barras_apiladas_proporciones <-
   xlab("Tipo de Delito") +
   ylab("Proporción") +
   labs(fill = "Género") +
-  scale_fill_manual(values = c("#1C86EE", "#1874CD", "#104E8B")) +
+  scale_fill_manual(values = c("#CD950C", "#EEAD0E", "#FFB90F")) +
   dark_theme_gray() +
   theme(legend.position = "top")
   
@@ -473,7 +473,7 @@ grafico_x_edad <-
   xlab("Tipo de Delito") +
   ylab("Proporción") +
   labs(fill = "EDAD") +
-  scale_fill_manual(values = c("#1E90FF", "#1C86EE", "#1874CD", "#104E8B")) +
+  scale_fill_manual(values = c("#FFB90F", "#EEAD0E", "#CD950C", "#8B6508")) +
   dark_theme_gray() +
   theme(legend.position = "top") 
   
